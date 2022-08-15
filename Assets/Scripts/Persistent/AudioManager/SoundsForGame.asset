@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb539ca4fe65dc442bd45fd250ab31dc, type: 3}
+  m_Name: SoundsForGame
+  m_EditorClassIdentifier: 
+  _sounds:
+  - _name: MainMenuBGM
+    _clip: {fileID: 0}
+    _volume: 0.5
+    _pitch: 0
+    _isLooping: 1
+    _isBGM: 1
+    _source: {fileID: 0}
+  - _name: GameplayBGM
+    _clip: {fileID: 0}
+    _volume: 0.5
+    _pitch: 0
+    _isLooping: 1
+    _isBGM: 1
+    _source: {fileID: 0}
+  - _name: PlayerShootSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: EnemyShootSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: EnemyDestroyedSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: PlayerDestroyedSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: BulletDestroyedSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: PowerUPSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: LifePointDownSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: NewWaveSpawnSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  - _name: ButtonPressedSFX
+    _clip: {fileID: 0}
+    _volume: 0.8
+    _pitch: 0
+    _isLooping: 0
+    _isBGM: 0
+    _source: {fileID: 0}
+  _mainMenuBGM: MainMenuBGM
+  _gameplayBMG: GameplayBGM
