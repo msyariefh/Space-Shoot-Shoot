@@ -3,6 +3,8 @@ using Agate.MVC.Core;
 using SpaceShootShoot.Boot;
 using System.Collections;
 using UnityEngine;
+using SpaceShootShoot.Module.Player;
+using SpaceShootShoot.Module.UserInput;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -10,18 +12,26 @@ namespace SpaceShootShoot.Gameplay
     {
         public override string SceneName => "Gameplay";
 
+        private PlayerController _player;
+
         protected override IConnector[] GetSceneConnectors()
         {
-            return null;
+            return new IConnector[] {
+                new PlayerConnector()
+            };
         }
 
         protected override IController[] GetSceneDependencies()
         {
-            return null;
+            return new IController[] {
+                new PlayerController(),
+                new UserInputController()
+            };
         }
 
         protected override IEnumerator InitSceneObject()
         {
+            _player.SetView(_view.PlayerView);
             yield return null;
         }
 
