@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using SpaceShootShoot.Boot;
+using SpaceShootShoot.Persistent.AudioManager;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace SpaceShootShoot.MainMenu
     {
         public override string SceneName => "MainMenu";
 
+        private AudioManagerController _audioCtrl; 
         protected override IConnector[] GetSceneConnectors()
         {
             return null;
@@ -22,6 +24,7 @@ namespace SpaceShootShoot.MainMenu
 
         protected override IEnumerator InitSceneObject()
         {
+            _audioCtrl.SetView(_view.AudioManagerView);
             _view.SetCallbacks(OnClickPlayButton);
             yield return null;
         }

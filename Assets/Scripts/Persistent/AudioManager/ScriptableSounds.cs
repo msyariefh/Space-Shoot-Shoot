@@ -9,7 +9,12 @@ namespace SpaceShootShoot.Persistent.AudioManager
 
         public string _mainMenuBGM;
         public string _gameplayBMG;
-        public Sound[] Sounds { get;}
+        public Sound[] Sounds()
+        {
+            Sound[] returnableArray = new Sound[_sounds.Length];
+            System.Array.Copy(_sounds, returnableArray, _sounds.Length);
+            return returnableArray;
+        }
     }
 }
 

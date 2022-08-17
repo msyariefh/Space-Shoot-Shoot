@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine;
 using SpaceShootShoot.Module.Player;
 using SpaceShootShoot.Module.UserInput;
+using SpaceShootShoot.Persistent.AudioManager;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -13,6 +14,7 @@ namespace SpaceShootShoot.Gameplay
         public override string SceneName => "Gameplay";
 
         private PlayerController _player;
+        private AudioManagerController _audioCtrl;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -32,6 +34,7 @@ namespace SpaceShootShoot.Gameplay
         protected override IEnumerator InitSceneObject()
         {
             _player.SetView(_view.PlayerView);
+            _audioCtrl.SetView(_view.AudioManagerView);
             yield return null;
         }
 

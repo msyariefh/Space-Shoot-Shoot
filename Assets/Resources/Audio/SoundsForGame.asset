@@ -14,79 +14,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sounds:
   - _name: MainMenuBGM
-    _clip: {fileID: 0}
-    _volume: 0.5
-    _pitch: 0
+    _clip: {fileID: 8300000, guid: a6b2d2e3a980fd04cbcf7f253f514d83, type: 3}
+    _volume: 1
+    _pitch: 1
     _isLooping: 1
     _isBGM: 1
     _source: {fileID: 0}
   - _name: GameplayBGM
-    _clip: {fileID: 0}
-    _volume: 0.5
-    _pitch: 0
+    _clip: {fileID: 8300000, guid: 52e51dc485a4bfb41a0255f7c1c5cb50, type: 3}
+    _volume: 1
+    _pitch: 1
     _isLooping: 1
     _isBGM: 1
     _source: {fileID: 0}
   - _name: PlayerShootSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: EnemyShootSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: EnemyDestroyedSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: PlayerDestroyedSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: BulletDestroyedSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: PowerUPSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: LifePointDownSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: NewWaveSpawnSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: ButtonPressedSFX
     _clip: {fileID: 0}
     _volume: 0.8
-    _pitch: 0
+    _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
