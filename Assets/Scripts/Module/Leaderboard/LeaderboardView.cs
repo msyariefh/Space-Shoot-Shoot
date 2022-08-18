@@ -38,10 +38,19 @@ namespace SpaceShootShoot.Module.Leaderboard
             for(int i = 0; i< model.Names.Length; i++)
             {
                 _highScore[i].NameField.text = model.Names[i].ToUpper();
-                _highScore[i].ScoreField.text = model.Scores[i].ToString();
+                _highScore[i].ScoreField.text = ConvertScore(model.Scores[i]);
             }
         }
 
+        private string ConvertScore(int score)
+        {
+            if (score >= 0 && score < 10) return "00000" + score.ToString();
+            if (score >= 10 && score < 100) return "0000" + score.ToString();
+            if (score >= 100 && score < 1000) return "000" + score.ToString();
+            if (score >= 1000 && score < 10000) return "00" + score.ToString();
+            if (score >= 10000 && score < 100000) return "0" + score.ToString();
+            return score.ToString();
+        }
         protected override void UpdateRenderModel(ILeaderboardModel model)
         {
 
