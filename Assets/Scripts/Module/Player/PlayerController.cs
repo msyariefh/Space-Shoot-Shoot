@@ -25,7 +25,6 @@ namespace SpaceShootShoot.Module.Player
 
         public void OnShoot()
         {
-            Debug.Log("shot " + _view.transform.position);
             Publish<PlayerShootMessage>(new PlayerShootMessage(_view.transform.position));
         }
     }

@@ -20,7 +20,6 @@ namespace SpaceShootShoot.Module.Bullet
 
         public void OnShoot(PlayerShootMessage message)
         {
-            Debug.Log(message.Position);
             _view.transform.position = message.Position;
         }
     }
