@@ -26,9 +26,9 @@ namespace SpaceShootShoot.Module.GameOver
             _view.SetCallback(OnMainMenuClicked, OnRetryClicked);
         }
 
-        public void GameOver(GameOverMessage message)
+        public void GameOver(TotalScoreMessage message)
         {
-            _model.SetPlayerScore(message.PlayerScore);
+            _model.SetPlayerScore(message.TotalScore);
             _view.gameObject.SetActive(true);
         }
 

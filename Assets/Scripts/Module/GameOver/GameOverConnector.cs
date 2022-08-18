@@ -11,12 +11,13 @@ namespace SpaceShootShoot.Module.GameOver
 
         protected override void Connect()
         {
-            Subscribe<GameOverMessage>(_gameOver.GameOver);
+            Subscribe<TotalScoreMessage>(_gameOver.GameOver);
+        }
 
 
         protected override void Disconnect()
         {
-            Unsubscribe<GameOverMessage>(_gameOver.GameOver);
+            Unsubscribe<TotalScoreMessage>(_gameOver.GameOver);
         }
     }
 }
