@@ -12,12 +12,29 @@ namespace SpaceShootShoot.Persistent.SaveData
         public override IEnumerator Initialize()
         {
             yield return base.Initialize();
-            AddPlayerPrefs();
+            //AddPlayerPrefs();
             LoadInit();
         }
 
         public void SetLeaderboardData(GameOverConfirmedMessage message)
         {
+            int[] currentData = _model.LeaderScores;
+            if (message.Score >= _model.HighScore)
+            {
+                _model.AddNewHighScore(0, message.Name, message.Score);
+            }
+            else
+            {
+                for(int i = 0; i < currentData.Length; i++)
+                {
+                    if (message.Score >= currentData[i])
+                    {
+                        _model.AddNewHighScore(i, message.Name, message.Score);
+                        break;
+                    }
+                }
+            }
+
             PlayerPrefs.SetString("LeaderNames", string.Join("/n", _model.LeaderNames));
             PlayerPrefs.SetString("LeaderScores", string.Join("/n", _model.LeaderScores));
             PlayerPrefs.Save();
@@ -40,15 +57,15 @@ namespace SpaceShootShoot.Persistent.SaveData
 
         }
 
-        //test
-        private void AddPlayerPrefs()
-        {
-            string[] nama = { "Aceng", "Doni", "Farid" };
-            int[] scores = { 120, 1200, 199 };
-            PlayerPrefs.SetString("LeaderNames", string.Join("/n", nama));
-            PlayerPrefs.SetString("LeaderScores", string.Join("/n", scores));
-            PlayerPrefs.Save();
-        }
+        ////test
+        //private void AddPlayerPrefs()
+        //{
+        //    string[] nama = { "Aceng", "Doni", "Farid" };
+        //    int[] scores = { 120, 1200, 199 };
+        //    PlayerPrefs.SetString("LeaderNames", string.Join("/n", nama));
+        //    PlayerPrefs.SetString("LeaderScores", string.Join("/n", scores));
+        //    PlayerPrefs.Save();
+        //}
     }
 }
 

@@ -6,5 +6,7 @@ namespace SpaceShootShoot.Persistent.SaveData
     {
         public string[] LeaderNames { get; }
         public int[] LeaderScores { get; }
+
+        public int HighScore { get; }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 using SpaceShootShoot.Module.Player;
 using SpaceShootShoot.Persistent.AudioManager;
 using SpaceShootShoot.Module.Bullet;
+using SpaceShootShoot.Module.GameOver;
 using SpaceShootShoot.Module.EnemyPool;
 
 namespace SpaceShootShoot.Gameplay
@@ -13,7 +14,9 @@ namespace SpaceShootShoot.Gameplay
     {
         [SerializeField] public PlayerView PlayerView;
         [SerializeField] private AudioManagerView _audioManagerView;
+        [SerializeField] private GameOverView _gameOverView;
         public AudioManagerView AudioManagerView => _audioManagerView;
+        public GameOverView GameOverView => _gameOverView;
         [SerializeField] public BulletView BulletView;
         [SerializeField] public EnemyPoolView EnemyPoolView;
     }
