@@ -21,7 +21,7 @@ namespace SpaceShootShoot.Module.Player
         }
 
         protected override void UpdateRenderModel(IPlayerModel model)
-        {
+        {   
             direction = model.Direction;
         }
 
@@ -32,6 +32,16 @@ namespace SpaceShootShoot.Module.Player
 
         private void Update()
         {
+            if (transform.position.x <= -10 && direction.x < 0)
+            {
+                return;
+            }
+
+            if (transform.position.x >= 10 && direction.x > 0)
+            {
+                return;
+            }
+
             transform.Translate(direction * Time.deltaTime * 10f);
         }
 
