@@ -12,6 +12,7 @@ using SpaceShootShoot.Module.EnemyBullet;
 using SpaceShootShoot.Module.Barrier;
 using SpaceShootShoot.Module.ScoreSystem;
 using SpaceShootShoot.Module.HUD;
+using SpaceShootShoot.Module.PowerUp;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -28,6 +29,7 @@ namespace SpaceShootShoot.Gameplay
         private BarrierController _barrier;
         private ScoreSystemController _scoreSystemCtrl;
         private HUDController _hudCtrl;
+        private PowerUpController _powerUpCtrl;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -40,7 +42,8 @@ namespace SpaceShootShoot.Gameplay
                 new HUDConnector(),
                 new EnemyBulletConnector(),
                 new BarrierConnector(),
-                new ScoreSystemConnector()
+                new ScoreSystemConnector(),
+                new PowerUpConnector()
             };
         }
 
@@ -57,7 +60,8 @@ namespace SpaceShootShoot.Gameplay
                 new HUDController(),
                 new EnemyBulletController(),
                 new BarrierController(),
-                new ScoreSystemController()
+                new ScoreSystemController(),
+                new PowerUpController()
             };
         }
 
@@ -71,6 +75,7 @@ namespace SpaceShootShoot.Gameplay
             _hudCtrl.SetView(_view.HUDView);
             _enemyBullet.SetView(_view.EnemyBulletView);
             _barrier.SetView(_view.BarrierView);
+            _powerUpCtrl.SetView(_view.PowerUpView);
             yield return null;
         }
 

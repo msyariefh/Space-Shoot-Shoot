@@ -2,6 +2,7 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using SpaceShootShoot.Boot;
 using SpaceShootShoot.Module.Leaderboard;
+using SpaceShootShoot.Module.Message;
 using SpaceShootShoot.Persistent.AudioManager;
 using System.Collections;
 using UnityEngine;
@@ -43,10 +44,13 @@ namespace SpaceShootShoot.MainMenu
         private void OnClickPlayButton()
         {
             SceneLoader.Instance.LoadScene("Gameplay");
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
         }
         private void OnLeaderboardClicked()
         {
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
             _view.LeaderboardView.gameObject.SetActive(true);
+            
         }
     }
 }

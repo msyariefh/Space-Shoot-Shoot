@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using SpaceShootShoot.Module.Message;
 using SpaceShootShoot.Persistent.SaveData;
 using System.Collections;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace SpaceShootShoot.Module.Leaderboard
         }
         private void OnBackButtonClicked()
         {
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
             _view.gameObject.SetActive(false);
         }
 

@@ -8,6 +8,7 @@ using SpaceShootShoot.Module.EnemyPool;
 using SpaceShootShoot.Module.HUD;
 using SpaceShootShoot.Module.EnemyBullet;
 using SpaceShootShoot.Module.Barrier;
+using SpaceShootShoot.Module.PowerUp;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -17,9 +18,12 @@ namespace SpaceShootShoot.Gameplay
         [SerializeField] private AudioManagerView _audioManagerView;
         [SerializeField] private GameOverView _gameOverView;
         [SerializeField] private HUDView _hudView;
+        [SerializeField] private PowerUpView _powerUpView;
         public AudioManagerView AudioManagerView => _audioManagerView;
         public GameOverView GameOverView => _gameOverView;
         public HUDView HUDView => _hudView;
+        public PowerUpView PowerUpView => _powerUpView;
+
         [SerializeField] public BulletView BulletView;
         [SerializeField] public EnemyPoolView EnemyPoolView;
         [SerializeField] public EnemyBulletView EnemyBulletView;

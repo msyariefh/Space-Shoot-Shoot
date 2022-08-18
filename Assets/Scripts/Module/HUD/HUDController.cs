@@ -29,14 +29,14 @@ namespace SpaceShootShoot.Module.HUD
         }
         public void UpdateLifePoints(PlayerHitMessage message)
         {
-            _view.LifePoints[tick - 1].color = new Color(0, 0, 0);
+            _view.LifePoints[tick - 1].color = new Color32(0, 0, 0, 255);
             tick--;
         }
         
-        public void UpdatePowerUp(bool a)
+        public void UpdatePowerUp(PowerUpStateMessage message)
         {
             Image _powerUp = _view.PowerUp.gameObject.GetComponent<Image>();
-            switch (a)
+            switch (message.IsActive)
             {
                 case true:
                     _powerUp.color =  new Color(255, 255, 255);
