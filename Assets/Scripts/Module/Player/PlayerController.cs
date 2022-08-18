@@ -23,7 +23,7 @@ namespace SpaceShootShoot.Module.Player
             _model.SetDirection(message.Direction);
         }
 
-        public void OnShoot()
+        private void OnShoot()
         {
             Publish<PlayerShootMessage>(new PlayerShootMessage(_view.transform.position));
         }

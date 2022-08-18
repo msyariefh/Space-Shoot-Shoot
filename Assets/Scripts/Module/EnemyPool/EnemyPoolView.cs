@@ -21,15 +21,19 @@ namespace SpaceShootShoot.Module.EnemyPool
 
         protected override void UpdateRenderModel(IEnemyPoolModel model)
         {
-            direction = model.Direction;
+            
         }
 
         private void Update()
         {
-            if (transform.position.x >= 6 || transform.position.x <= -6)
+            float temp = transform.position.x + direction.x;
+
+            if (temp >= 7 || temp <= -7)
             {
                 direction *= -1;
+                transform.Translate(Vector3.down * 0.1f);
             }
+
             transform.Translate(direction * Time.deltaTime * 5f);
         }
     }

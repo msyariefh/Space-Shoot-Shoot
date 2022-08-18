@@ -24,7 +24,8 @@ namespace SpaceShootShoot.Gameplay
         {
             return new IConnector[] {
                 new PlayerConnector(),
-                new BulletConnector()
+                new BulletConnector(),
+                new EnemyPoolConnector()
             };
         }
 
@@ -34,7 +35,6 @@ namespace SpaceShootShoot.Gameplay
                 new BulletController(),
                 new PlayerController(),
                 new UserInputController(),
-                new BulletController(),
                 new EnemyPoolController()
             };
         }
