@@ -7,7 +7,8 @@ namespace SpaceShootShoot.Module.Player
     {
         public string Name { get; private set; }
         public float Speed { get; }
-        public Vector2 Direction {get; private set; }
+        public Vector2 Direction { get; private set; }
+        public int Health { get; private set; } = 3;
 
         public void SetName(string name)
         {
@@ -19,6 +20,11 @@ namespace SpaceShootShoot.Module.Player
         {
             Direction = direction;
             SetDataAsDirty();
+        }
+
+        public void DecreaseHealth()
+        {
+            Health--;
         }
     }
 }

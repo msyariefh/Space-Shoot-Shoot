@@ -12,7 +12,7 @@ namespace SpaceShootShoot.Module.EnemyPool
         public Vector3 DespawnPosition { get; private set; }
         public int PoolSize { get; private set; } = 20;
         public GameObject[] Pool = new GameObject[20];
-        public float Gap { get; private set; } = 1f;
+        public float Gap { get; private set; } = 0.5f;
         public int KillCount { get; private set; } = 0;
 
         public void AddKill()
