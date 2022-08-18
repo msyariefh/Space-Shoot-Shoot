@@ -15,11 +15,18 @@ namespace SpaceShootShoot.Module.Player
         public override void SetView(PlayerView view)
         {
             base.SetView(view);
+            view.SetCallbacks(OnShoot);
         }
 
         public void OnMovePlayer(MovePlayerMessage message)
         {
             _model.SetDirection(message.Direction);
+        }
+
+        public void OnShoot()
+        {
+            Debug.Log("shot " + _view.transform.position);
+            Publish<PlayerShootMessage>(new PlayerShootMessage(_view.transform.position));
         }
     }
 }
