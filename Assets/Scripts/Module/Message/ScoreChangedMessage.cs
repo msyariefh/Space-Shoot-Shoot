@@ -1,9 +1,13 @@
-public struct ScoreChangedMessage 
+namespace SpaceShootShoot.Module.Message
 {
-    public int Score { get; private set; }
-
-    public ScoreChangedMessage(int score)
+    public struct ScoreChangedMessage 
     {
-        Score = score;
+        public int Score { get; private set; }
+
+        public ScoreChangedMessage(int score)
+        {
+            Score = score;
+        }
     }
+
 }

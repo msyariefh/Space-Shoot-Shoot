@@ -2,7 +2,6 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using SpaceShootShoot.Boot;
 using System.Collections;
-using UnityEngine;
 using SpaceShootShoot.Module.Player;
 using SpaceShootShoot.Module.UserInput;
 using SpaceShootShoot.Persistent.AudioManager;
@@ -10,6 +9,7 @@ using SpaceShootShoot.Module.Bullet;
 using SpaceShootShoot.Module.GameOver;
 using SpaceShootShoot.Module.EnemyPool;
 using SpaceShootShoot.Module.ScoreSystem;
+using SpaceShootShoot.Module.HUD;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -23,6 +23,7 @@ namespace SpaceShootShoot.Gameplay
         private GameOverController _gameOver;
         private EnemyPoolController _enemyPool;
         private ScoreSystemController _scoreSystemCtrl;
+        private HUDController _hudCtrl;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -31,7 +32,8 @@ namespace SpaceShootShoot.Gameplay
                 new BulletConnector(),
                 new GameOverConnector(),
                 new EnemyPoolConnector(),
-                new ScoreSystemConnector()
+                new ScoreSystemConnector(),
+                new HUDConnector()
             };
         }
 
@@ -44,7 +46,8 @@ namespace SpaceShootShoot.Gameplay
                 new BulletController(),
                 new GameOverController(),
                 new EnemyPoolController(),
-                new ScoreSystemController()
+                new ScoreSystemController(),
+                new HUDController()
             };
         }
 
@@ -55,6 +58,7 @@ namespace SpaceShootShoot.Gameplay
             _bullet.SetView(_view.BulletView);
             _gameOver.SetView(_view.GameOverView);
             _enemyPool.SetView(_view.EnemyPoolView);
+            _hudCtrl.SetView(_view.HUDView);
             yield return null;
         }
 
