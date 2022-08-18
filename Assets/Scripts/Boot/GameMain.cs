@@ -3,7 +3,6 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.UI;
 
 namespace SpaceShootShoot.Boot
 {
@@ -30,7 +29,7 @@ namespace SpaceShootShoot.Boot
         {
             GameObject obj = new ("Event System");
             obj.AddComponent<EventSystem>();
-            obj.AddComponent<InputSystemUIInputModule>();
+            obj.AddComponent<StandaloneInputModule>();
 
             GameObject.DontDestroyOnLoad(obj);
         }
@@ -40,7 +39,6 @@ namespace SpaceShootShoot.Boot
             GameObject obj = new ("Camera");
             obj.AddComponent<Camera>();
             obj.AddComponent<AudioListener>();
-            obj.transform.Translate(Vector3.back * 10);
 
             GameObject.DontDestroyOnLoad(obj);
         }
