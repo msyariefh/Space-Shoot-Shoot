@@ -6,6 +6,7 @@ namespace SpaceShootShoot.Module.Player
     public class PlayerConnector : BaseConnector
     {
         private PlayerController _player;
+        
         protected override void Connect()
         {
             Subscribe<MovePlayerMessage>(_player.OnMovePlayer);

@@ -6,6 +6,7 @@ using UnityEngine;
 using SpaceShootShoot.Module.Player;
 using SpaceShootShoot.Module.UserInput;
 using SpaceShootShoot.Persistent.AudioManager;
+using SpaceShootShoot.Module.Bullet;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -15,19 +16,23 @@ namespace SpaceShootShoot.Gameplay
 
         private PlayerController _player;
         private AudioManagerController _audioCtrl;
+        private BulletController _bullet;
 
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
-                new PlayerConnector()
+                new PlayerConnector(),
+                new BulletConnector()
             };
         }
 
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
+                new BulletController(),
                 new PlayerController(),
-                new UserInputController()
+                new UserInputController(),
+                new BulletController()
             };
         }
 
@@ -35,6 +40,7 @@ namespace SpaceShootShoot.Gameplay
         {
             _player.SetView(_view.PlayerView);
             _audioCtrl.SetView(_view.AudioManagerView);
+            _bullet.SetView(_view.BulletView);
             yield return null;
         }
 
