@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Agate.MVC.Base;
 using SpaceShootShoot.Message;
+using SpaceShootShoot.Module.Message;
 
 namespace SpaceShootShoot.Module.Player 
 {
@@ -26,6 +27,17 @@ namespace SpaceShootShoot.Module.Player
         private void OnShoot()
         {
             Publish<PlayerShootMessage>(new PlayerShootMessage(_view.transform.position));
+        }
+
+        public void OnPlayerHit(PlayerHitMessage message)
+        {
+            Debug.Log("hit");
+            _model.DecreaseHealth();
+            if (_model.Health <= 0)
+            {
+                Publish<GameOverMessage>(new GameOverMessage());
+                _view.gameObject.SetActive(false);
+            }
         }
     }
 }
