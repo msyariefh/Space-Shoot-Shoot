@@ -7,6 +7,7 @@ namespace SpaceShootShoot.Module.Player
     {
         public string Name { get; }
         public float Speed { get; }
-        public Vector2 Direction {get; }
+        public Vector2 Direction { get; }
+        public int Health { get; }
     }
 }

@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using SpaceShootShoot.Message;
+using SpaceShootShoot.Module.Message;
 
 namespace SpaceShootShoot.Module.EnemyPool
 {
@@ -10,11 +11,13 @@ namespace SpaceShootShoot.Module.EnemyPool
         protected override void Connect()
         {
             Subscribe<EnemyHitMessage>(_enemyPool.OnEnemyHit);
+            Subscribe<GameOverMessage>(_enemyPool.GameOver);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<EnemyHitMessage>(_enemyPool.OnEnemyHit);
+            Unsubscribe<GameOverMessage>(_enemyPool.GameOver);
         }
     }
 }

@@ -6,6 +6,8 @@ using SpaceShootShoot.Module.Bullet;
 using SpaceShootShoot.Module.GameOver;
 using SpaceShootShoot.Module.EnemyPool;
 using SpaceShootShoot.Module.HUD;
+using SpaceShootShoot.Module.EnemyBullet;
+using SpaceShootShoot.Module.Barrier;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -20,6 +22,8 @@ namespace SpaceShootShoot.Gameplay
         public HUDView HUDView => _hudView;
         [SerializeField] public BulletView BulletView;
         [SerializeField] public EnemyPoolView EnemyPoolView;
+        [SerializeField] public EnemyBulletView EnemyBulletView;
+        [SerializeField] public BarrierView BarrierView;
     }
 }
 

@@ -10,11 +10,13 @@ namespace SpaceShootShoot.Module.Player
         protected override void Connect()
         {
             Subscribe<MovePlayerMessage>(_player.OnMovePlayer);
+            Subscribe<PlayerHitMessage>(_player.OnPlayerHit);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<MovePlayerMessage>(_player.OnMovePlayer);
+            Unsubscribe<PlayerHitMessage>(_player.OnPlayerHit);
         }
     }
 }
