@@ -13,5 +13,18 @@ namespace SpaceShootShoot.Module.EnemyPool
         public int PoolSize { get; private set; } = 20;
         public GameObject[] Pool = new GameObject[20];
         public float Gap { get; private set; } = 1f;
+        public int KillCount { get; private set; } = 0;
+
+        public void AddKill()
+        {
+            KillCount++;
+            SetDataAsDirty();
+        }
+
+        public void ResetKill()
+        {
+            KillCount = 0;
+            SetDataAsDirty();
+        }
     }
 }

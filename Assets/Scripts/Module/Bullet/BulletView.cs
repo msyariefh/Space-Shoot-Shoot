@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Agate.MVC.Base;
+using UnityEngine.Events;
 
 namespace SpaceShootShoot.Module.Bullet
 {
@@ -8,6 +9,12 @@ namespace SpaceShootShoot.Module.Bullet
     {
         Vector2 direction;
         [SerializeField] private float _speed;
+        private UnityAction<GameObject> _onEnemyHit;
+
+        public void SetCallbacks(UnityAction<GameObject> onEnemyHit)
+        {
+            _onEnemyHit = onEnemyHit;
+        }
 
         protected override void InitRenderModel(IBulletModel model)
         {
@@ -16,7 +23,7 @@ namespace SpaceShootShoot.Module.Bullet
 
         protected override void UpdateRenderModel(IBulletModel model)
         {
-            
+
         }
 
         private void Update()
@@ -27,6 +34,14 @@ namespace SpaceShootShoot.Module.Bullet
         public float GetSpeed()
         {
             return _speed;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.tag == "Enemy")
+            {
+                _onEnemyHit?.Invoke(other.gameObject);
+            }
         }
     }
 }

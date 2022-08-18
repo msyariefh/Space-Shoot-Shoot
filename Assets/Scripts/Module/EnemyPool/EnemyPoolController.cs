@@ -1,5 +1,6 @@
 using System.Collections;
 using Agate.MVC.Base;
+using SpaceShootShoot.Message;
 using UnityEngine;
 
 namespace SpaceShootShoot.Module.EnemyPool
@@ -17,7 +18,7 @@ namespace SpaceShootShoot.Module.EnemyPool
             InitPoolObject();
         }
 
-        public void InitPoolObject()
+        private void InitPoolObject()
         {
             for (int i = 0; i < _model.PoolSize; i++)
             {
@@ -28,9 +29,31 @@ namespace SpaceShootShoot.Module.EnemyPool
             }
         }
 
-        public void SpawnEnemy(GameObject enemy, int enemyNumber)
+        private void SpawnEnemy(GameObject enemy, int enemyNumber)
         {
-            enemy.transform.localPosition = new Vector3((enemyNumber % 5) + (enemyNumber * _model.Gap % 5) - 4f, (enemyNumber / 5) + (enemyNumber / 5 * _model.Gap));
+            enemy.transform.position = new Vector3((enemyNumber % 5) + (enemyNumber * _model.Gap % 5) - 4f, (enemyNumber / 5) + (enemyNumber / 5 * _model.Gap));
+            enemy.SetActive(true);
+        }
+
+        private void ResetPoolObject()
+        {
+            _view.transform.position = Vector3.zero + Vector3.down;
+
+            for (int i = 0; i < _model.PoolSize; i++)
+            {
+                SpawnEnemy(_model.Pool[i], i);
+            }
+        }
+
+        public void OnEnemyHit(EnemyHitMessage message)
+        {
+            _model.AddKill();
+            if (_model.KillCount == _model.PoolSize)
+            {
+                Debug.Log("Wave cleared");
+                ResetPoolObject();
+                _model.ResetKill();
+            }
         }
     }
 }
