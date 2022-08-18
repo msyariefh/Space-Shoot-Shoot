@@ -12,7 +12,7 @@ namespace SpaceShootShoot.Module.GameOver
         protected override void Connect()
         {
             Subscribe<GameOverMessage>(_gameOver.GameOver);
-        }
+
 
         protected override void Disconnect()
         {

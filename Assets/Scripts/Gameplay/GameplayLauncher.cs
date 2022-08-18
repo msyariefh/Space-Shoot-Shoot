@@ -11,6 +11,7 @@ using SpaceShootShoot.Module.GameOver;
 using SpaceShootShoot.Module.EnemyPool;
 using SpaceShootShoot.Module.EnemyBullet;
 using SpaceShootShoot.Module.Barrier;
+using SpaceShootShoot.Module.ScoreSystem;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -25,6 +26,7 @@ namespace SpaceShootShoot.Gameplay
         private EnemyPoolController _enemyPool;
         private EnemyBulletController _enemyBullet;
         private BarrierController _barrier;
+        private ScoreSystemController _scoreSystemCtrl;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -34,7 +36,8 @@ namespace SpaceShootShoot.Gameplay
                 new GameOverConnector(),
                 new EnemyPoolConnector(),
                 new EnemyBulletConnector(),
-                new BarrierConnector()
+                new BarrierConnector(),
+                new ScoreSystemConnector()
             };
         }
 
@@ -48,7 +51,8 @@ namespace SpaceShootShoot.Gameplay
                 new GameOverController(),
                 new EnemyPoolController(),
                 new EnemyBulletController(),
-                new BarrierController()
+                new BarrierController(),
+                new ScoreSystemController()
             };
         }
 
