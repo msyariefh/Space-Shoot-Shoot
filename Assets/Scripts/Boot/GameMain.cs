@@ -4,6 +4,8 @@ using Agate.MVC.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
+using SpaceShootShoot.Persistent.AudioManager;
+using SpaceShootShoot.Persistent.SaveData;
 
 namespace SpaceShootShoot.Boot
 {
@@ -11,12 +13,19 @@ namespace SpaceShootShoot.Boot
     {
         protected override IConnector[] GetConnectors()
         {
-            return null;
+            return new IConnector[]{
+                new AudioManagerConnector(),
+                new SaveDataConnector()
+            };
         }
 
         protected override IController[] GetDependencies()
         {
-            return null;
+            return new IController[]
+            {
+                new AudioManagerController(),
+                new SaveDataController()
+            };
         }
 
         protected override IEnumerator StartInit()
@@ -25,7 +34,6 @@ namespace SpaceShootShoot.Boot
             CreateCamera();
             yield return null;
         }
-
         private void CreateEventSystem()
         {
             GameObject obj = new ("Event System");
@@ -44,5 +52,7 @@ namespace SpaceShootShoot.Boot
 
             GameObject.DontDestroyOnLoad(obj);
         }
+
+
     }
 }

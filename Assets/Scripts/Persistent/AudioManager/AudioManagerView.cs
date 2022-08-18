@@ -6,7 +6,7 @@ namespace SpaceShootShoot.Persistent.AudioManager
 {
     public class AudioManagerView : ObjectView<IAudioManagerModel>
     {
-        private string _currectBGMPlayed;
+        [SerializeField] private string _bgmForScene;
         protected override void InitRenderModel(IAudioManagerModel model)
         {
             foreach(Sound sound in model.Sounds)
@@ -18,27 +18,35 @@ namespace SpaceShootShoot.Persistent.AudioManager
                 sound.Source.loop = sound.IsLooping;
                 sound.Source.playOnAwake = false;
             }
-            FindAudioSource(model.Sounds, model.BGM, true)?.Play();
-            _currectBGMPlayed = model.BGM;
+            PlayAudioSourceFromList(model.Sounds, _bgmForScene, true);
         }
 
         protected override void UpdateRenderModel(IAudioManagerModel model)
         {
-            if (model.BGM != _currectBGMPlayed)
-            {
-                FindAudioSource(model.Sounds, _currectBGMPlayed, true)?.Stop();
-                _currectBGMPlayed = model.BGM;
-                FindAudioSource(model.Sounds, model.BGM, true)?.Play();
-            }
-
-            FindAudioSource(model.Sounds, model.SFX, false)?.Play();
-
+            PlayAudioSourceFromList(model.Sounds, model.SFX, false);
         }
 
-        private AudioSource FindAudioSource(Sound[] sounds, string name, bool isBGM)
+        private void PlayAudioSourceFromList(Sound[] sounds, string audioName, bool isBGM)
         {
-            return Array.Find(sounds, sound => sound.Name == name && 
-            sound.IsBGM == isBGM).Source;
+            if (audioName == null) return;
+            AudioSource audioSource;
+            if (isBGM)
+            {
+                audioSource = Array.Find(sounds, s => s.IsBGM == true && s.Name == audioName)?.Source;
+                if (audioSource == null)
+                {
+                    Debug.LogWarning($"BGM {audioName} can't be found! \nMake sure to enter the correct name");
+                    return;
+                }
+                if (audioSource.isPlaying) return;
+                print(audioSource.clip);
+                audioSource.Play();
+                print(audioSource.isPlaying);
+                return;
+            }
+
+            audioSource = Array.Find(sounds, s => s.IsBGM == false && s.Name == audioName).Source;
+            audioSource.Play();
         }
     }
 }
