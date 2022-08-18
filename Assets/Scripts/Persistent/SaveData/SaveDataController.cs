@@ -12,6 +12,7 @@ namespace SpaceShootShoot.Persistent.SaveData
         public override IEnumerator Initialize()
         {
             yield return base.Initialize();
+            AddPlayerPrefs();
             LoadInit();
         }
 
@@ -23,11 +24,30 @@ namespace SpaceShootShoot.Persistent.SaveData
         }
         private void LoadInit()
         {
-            string[] leaderboardNames = PlayerPrefs.GetString("LeaderNames").Split("/n");
+            string leaderNames = PlayerPrefs.GetString("LeaderNames");
+            string leaderScores = PlayerPrefs.GetString("LeaderScores");
+            //Debug.Log($"{leaderNames.Length} \n{leaderScores.Length}");
+            if (leaderNames.Length <= 0 && leaderScores.Length <= 0)
+            {
+                _model.SetLeaderboard(new string[0], new int[0]);
+                return;
+            }
+
+            string[] leaderboardNames = PlayerPrefs.GetString("LeaderNames")?.Split("/n");
             int[] leaderboardScores = PlayerPrefs.GetString("LeaderScores")?.Split("/n")?.Select(Int32.Parse)?.ToArray();
 
             _model.SetLeaderboard(leaderboardNames, leaderboardScores);
 
+        }
+
+        //test
+        private void AddPlayerPrefs()
+        {
+            string[] nama = { "Aceng", "Doni", "Farid" };
+            int[] scores = { 120, 1200, 199 };
+            PlayerPrefs.SetString("LeaderNames", string.Join("/n", nama));
+            PlayerPrefs.SetString("LeaderScores", string.Join("/n", scores));
+            PlayerPrefs.Save();
         }
     }
 }

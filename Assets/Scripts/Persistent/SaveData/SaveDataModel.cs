@@ -9,8 +9,14 @@ namespace SpaceShootShoot.Persistent.SaveData
 
         public void SetLeaderboard(string[] names, int[] scores)
         {
-            LeaderNames = names;
-            LeaderScores = scores;
+            string[] _names = names;
+            int[] _scores = scores;
+
+            System.Array.Sort(_scores, _names);
+            System.Array.Reverse(_names);
+            System.Array.Reverse(_scores);
+            LeaderNames = _names;
+            LeaderScores = _scores;
             SetDataAsDirty();
         }
     }

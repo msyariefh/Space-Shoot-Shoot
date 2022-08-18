@@ -5,16 +5,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using SpaceShootShoot.Persistent.AudioManager;
+using SpaceShootShoot.Persistent.SaveData;
 
 namespace SpaceShootShoot.Boot
 {
     public class GameMain : BaseMain<GameMain>, IMain
     {
-        //private AudioManagerController _audio;
         protected override IConnector[] GetConnectors()
         {
             return new IConnector[]{
-                new AudioManagerConnector()
+                new AudioManagerConnector(),
+                new SaveDataConnector()
             };
         }
 
@@ -22,7 +23,8 @@ namespace SpaceShootShoot.Boot
         {
             return new IController[]
             {
-                new AudioManagerController()
+                new AudioManagerController(),
+                new SaveDataController()
             };
         }
 
@@ -30,7 +32,6 @@ namespace SpaceShootShoot.Boot
         {
             CreateEventSystem();
             CreateCamera();
-            //CreateAudioManager();
             yield return null;
         }
         private void CreateEventSystem()
