@@ -19,9 +19,18 @@ namespace SpaceShootShoot.Persistent.SaveData
             System.Array.Reverse(_scores);
             LeaderNames = _names;
             LeaderScores = _scores;
+
+            if(_scores.Length > 0)
+            {
+                HighScore = _scores[0];
+            }
+            else
+            {
+                HighScore = 0;
+            }
             SetDataAsDirty();
 
-            HighScore = _scores[0];
+            
         }
         public void AddNewHighScore(int position, string name, int score)
         {
@@ -41,6 +50,8 @@ namespace SpaceShootShoot.Persistent.SaveData
             }
 
             if (position == 0) HighScore = score;
+
+            SetDataAsDirty();
         }
     }
 }

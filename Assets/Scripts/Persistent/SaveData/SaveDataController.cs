@@ -46,7 +46,11 @@ namespace SpaceShootShoot.Persistent.SaveData
             //Debug.Log($"{leaderNames.Length} \n{leaderScores.Length}");
             if (leaderNames.Length <= 0 && leaderScores.Length <= 0)
             {
-                _model.SetLeaderboard(new string[0], new int[0]);
+                _model.SetLeaderboard(new string[10], new int[10]);
+                string[] setterNames = { "name", "name", "name", "name", "name", "name", "name", "name", "name", "name" };
+                int[] setterScores = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                PlayerPrefs.SetString("LeaderNames", string.Join("/n", setterNames));
+                PlayerPrefs.SetString("LeaderScores", string.Join("/n", setterScores));
                 return;
             }
 

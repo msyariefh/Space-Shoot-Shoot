@@ -10,10 +10,12 @@ namespace SpaceShootShoot.Module.Bullet
         Vector2 direction;
         [SerializeField] private float _speed;
         private UnityAction<GameObject> _onEnemyHit;
+        private UnityAction _onPowerUpHit;
 
-        public void SetCallbacks(UnityAction<GameObject> onEnemyHit)
+        public void SetCallbacks(UnityAction<GameObject> onEnemyHit, UnityAction onPowerUpHit)
         {
             _onEnemyHit = onEnemyHit;
+            _onPowerUpHit = onPowerUpHit;
         }
 
         protected override void InitRenderModel(IBulletModel model)
@@ -41,6 +43,10 @@ namespace SpaceShootShoot.Module.Bullet
             if (other.tag == "Enemy")
             {
                 _onEnemyHit?.Invoke(other.gameObject);
+            }
+            if (other.CompareTag("PowerUp"))
+            {
+                _onPowerUpHit?.Invoke();
             }
         }
     }

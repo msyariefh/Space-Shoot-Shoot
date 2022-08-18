@@ -10,11 +10,13 @@ namespace SpaceShootShoot.Module.Bullet
         protected override void Connect()
         {
             Subscribe<PlayerShootMessage>(_bullet.OnShoot);
+            Subscribe<PowerUpStateMessage>(_bullet.PowerUp);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<PlayerShootMessage>(_bullet.OnShoot);
+            Unsubscribe<PowerUpStateMessage>(_bullet.PowerUp);
         }
     }
 }

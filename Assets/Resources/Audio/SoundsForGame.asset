@@ -15,14 +15,14 @@ MonoBehaviour:
   _sounds:
   - _name: MainMenuBGM
     _clip: {fileID: 8300000, guid: a6b2d2e3a980fd04cbcf7f253f514d83, type: 3}
-    _volume: 0.8
+    _volume: 0.5
     _pitch: 1
     _isLooping: 1
     _isBGM: 1
     _source: {fileID: 0}
   - _name: GameplayBGM
     _clip: {fileID: 8300000, guid: 52e51dc485a4bfb41a0255f7c1c5cb50, type: 3}
-    _volume: 0.8
+    _volume: 0.5
     _pitch: 1
     _isLooping: 1
     _isBGM: 1
@@ -35,36 +35,36 @@ MonoBehaviour:
     _isBGM: 0
     _source: {fileID: 0}
   - _name: EnemyShootSFX
-    _clip: {fileID: 0}
-    _volume: 0.8
+    _clip: {fileID: 8300000, guid: 56861c9e3a1bc354daebff19bfa1152b, type: 3}
+    _volume: 1
     _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: EnemyDestroyedSFX
-    _clip: {fileID: 0}
-    _volume: 0.8
+    _clip: {fileID: 8300000, guid: cbf2a46800e277f42b7ae935a384d300, type: 3}
+    _volume: 1
     _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: PlayerDestroyedSFX
-    _clip: {fileID: 0}
-    _volume: 0.8
+    _clip: {fileID: 8300000, guid: b81a360dfc2b61142b849d12cdeaa89e, type: 3}
+    _volume: 1
     _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: BulletDestroyedSFX
-    _clip: {fileID: 0}
-    _volume: 0.8
+    _clip: {fileID: 8300000, guid: cbf2a46800e277f42b7ae935a384d300, type: 3}
+    _volume: 1
     _pitch: 1
     _isLooping: 0
     _isBGM: 0
     _source: {fileID: 0}
   - _name: PowerUPSFX
     _clip: {fileID: 0}
-    _volume: 0.8
+    _volume: 1
     _pitch: 1
     _isLooping: 0
     _isBGM: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
     _isBGM: 0
     _source: {fileID: 0}
   - _name: ButtonPressedSFX
-    _clip: {fileID: 0}
-    _volume: 0.8
+    _clip: {fileID: 8300000, guid: fdb91684946d6e749b207923e1d7f7b5, type: 3}
+    _volume: 1
     _pitch: 1
     _isLooping: 0
     _isBGM: 0

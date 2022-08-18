@@ -28,6 +28,7 @@ namespace SpaceShootShoot.Module.GameOver
 
         public void GameOver(TotalScoreMessage message)
         {
+            Debug.Log(message.TotalScore);
             _model.SetPlayerScore(message.TotalScore);
             _view.gameObject.SetActive(true);
         }
@@ -37,6 +38,7 @@ namespace SpaceShootShoot.Module.GameOver
         public void OnMainMenuClicked()
         {
             GameOverConfirmed();
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
             SceneLoader.Instance.LoadScene("MainMenu");
             //back to menu
         }
@@ -44,6 +46,7 @@ namespace SpaceShootShoot.Module.GameOver
         public void OnRetryClicked()
         {
             GameOverConfirmed();
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
             SceneLoader.Instance.LoadScene("Gameplay");
             //retry game
         }
