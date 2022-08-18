@@ -29,7 +29,7 @@ namespace SpaceShootShoot.Module.Bullet
         {
             _view.gameObject.SetActive(false);
             enemy.SetActive(false);
-            Publish<EnemyHitMessage>(new EnemyHitMessage());
+            Publish<EnemyHitMessage>(new EnemyHitMessage(10));
         }
     }
 }

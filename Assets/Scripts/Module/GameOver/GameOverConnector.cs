@@ -7,14 +7,15 @@ namespace SpaceShootShoot.Module.GameOver
 {
     public class GameOverConnector : BaseConnector
     {
+        private GameOverController _gameOverCtrl;
         protected override void Connect()
         {
-            //Subscribe<GameOverMessage>()
+            Subscribe<GameOverMessage>(_gameOverCtrl.GameOver);
         }
 
         protected override void Disconnect()
         {
-            
+            Unsubscribe<GameOverMessage>(_gameOverCtrl.GameOver);
         }
     }
 }

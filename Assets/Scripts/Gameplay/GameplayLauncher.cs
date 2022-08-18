@@ -9,6 +9,7 @@ using SpaceShootShoot.Persistent.AudioManager;
 using SpaceShootShoot.Module.Bullet;
 using SpaceShootShoot.Module.GameOver;
 using SpaceShootShoot.Module.EnemyPool;
+using SpaceShootShoot.Module.ScoreSystem;
 
 namespace SpaceShootShoot.Gameplay
 {
@@ -21,6 +22,7 @@ namespace SpaceShootShoot.Gameplay
         private BulletController _bullet;
         private GameOverController _gameOver;
         private EnemyPoolController _enemyPool;
+        private ScoreSystemController _scoreSystemCtrl;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -28,7 +30,8 @@ namespace SpaceShootShoot.Gameplay
                 new PlayerConnector(),
                 new BulletConnector(),
                 new GameOverConnector(),
-                new EnemyPoolConnector()
+                new EnemyPoolConnector(),
+                new ScoreSystemConnector()
             };
         }
 
@@ -40,7 +43,8 @@ namespace SpaceShootShoot.Gameplay
                 new UserInputController(),
                 new BulletController(),
                 new GameOverController(),
-                new EnemyPoolController()
+                new EnemyPoolController(),
+                new ScoreSystemController()
             };
         }
 
