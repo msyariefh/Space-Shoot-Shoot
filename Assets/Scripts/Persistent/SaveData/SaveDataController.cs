@@ -18,6 +18,7 @@ namespace SpaceShootShoot.Persistent.SaveData
 
         public void SetLeaderboardData(GameOverConfirmedMessage message)
         {
+            //Debug.Log($"{message.Name} {message.Score}");
             int[] currentData = _model.LeaderScores;
             if (message.Score >= _model.HighScore)
             {
@@ -44,11 +45,14 @@ namespace SpaceShootShoot.Persistent.SaveData
             string leaderNames = PlayerPrefs.GetString("LeaderNames");
             string leaderScores = PlayerPrefs.GetString("LeaderScores");
             //Debug.Log($"{leaderNames.Length} \n{leaderScores.Length}");
+
+            _model.SetLeaderboard(new string[10], new int[10]);
+            string[] setterNames = { "name", "name", "name", "name", "name", "name", "name", "name", "name", "name" };
+            int[] setterScores = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
             if (leaderNames.Length <= 0 && leaderScores.Length <= 0)
             {
-                _model.SetLeaderboard(new string[10], new int[10]);
-                string[] setterNames = { "name", "name", "name", "name", "name", "name", "name", "name", "name", "name" };
-                int[] setterScores = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                
                 PlayerPrefs.SetString("LeaderNames", string.Join("/n", setterNames));
                 PlayerPrefs.SetString("LeaderScores", string.Join("/n", setterScores));
                 return;
@@ -57,7 +61,13 @@ namespace SpaceShootShoot.Persistent.SaveData
             string[] leaderboardNames = PlayerPrefs.GetString("LeaderNames")?.Split("/n");
             int[] leaderboardScores = PlayerPrefs.GetString("LeaderScores")?.Split("/n")?.Select(Int32.Parse)?.ToArray();
 
-            _model.SetLeaderboard(leaderboardNames, leaderboardScores);
+            for(int i =0; i < leaderboardNames.Length; i++)
+            {
+                setterNames[i] = leaderboardNames[i];
+                setterScores[i] = leaderboardScores[i];
+            }
+
+            _model.SetLeaderboard(setterNames, setterScores);
 
         }
 
