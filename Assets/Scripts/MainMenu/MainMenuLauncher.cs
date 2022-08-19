@@ -1,6 +1,9 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using SpaceShootShoot.Boot;
+using SpaceShootShoot.Module.Leaderboard;
+using SpaceShootShoot.Module.Message;
+using SpaceShootShoot.Persistent.AudioManager;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +13,8 @@ namespace SpaceShootShoot.MainMenu
     {
         public override string SceneName => "MainMenu";
 
+        private AudioManagerController _audioCtrl;
+        private LeaderboardController _leaderboardCtrl;
         protected override IConnector[] GetSceneConnectors()
         {
             return null;
@@ -17,12 +22,17 @@ namespace SpaceShootShoot.MainMenu
 
         protected override IController[] GetSceneDependencies()
         {
-            return null;
+
+            return new IController[] {
+                new LeaderboardController()
+            };
         }
 
         protected override IEnumerator InitSceneObject()
         {
-            _view.SetCallbacks(OnClickPlayButton);
+            _audioCtrl.SetView(_view.AudioManagerView);
+            _leaderboardCtrl.SetView(_view.LeaderboardView);
+            _view.SetCallbacks(OnClickPlayButton, OnLeaderboardClicked);
             yield return null;
         }
 
@@ -34,6 +44,13 @@ namespace SpaceShootShoot.MainMenu
         private void OnClickPlayButton()
         {
             SceneLoader.Instance.LoadScene("Gameplay");
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
+        }
+        private void OnLeaderboardClicked()
+        {
+            Publish<ButtonPressedMessage>(new ButtonPressedMessage());
+            _view.LeaderboardView.gameObject.SetActive(true);
+            
         }
     }
 }
